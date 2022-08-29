@@ -6,7 +6,7 @@ RUN apt-get update && \
 
 RUN git clone -b monolith https://github.com/express42/reddit.git
 
-COPY mongodb.conf /etc/mongod.conf
+COPY mongod.conf /etc/mongod.conf
 COPY db_config /reddit/db_config
 COPY start.sh /start.sh
 RUN chmod 777 /start.sh
