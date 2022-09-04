@@ -21,4 +21,4 @@ maddogsstyle microservices repository
  
 Папка, в которой находится docker-compose.yml определяет имя проекта. 
 Изменить имя проекта можно, задав переменную в файле .env или используя команду:
-docker-compose -p <projectname> up -d
+docker-compose -p [projectname] up -d
