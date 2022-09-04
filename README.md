@@ -18,3 +18,7 @@ maddogsstyle microservices repository
  - Работа с сетями
  - Работа с docker-compose
  - Определение и задание переменных
+ 
+Папка, в которой находится docker-compose.yml определяет имя проекта. 
+Изменить имя проекта можно, задав переменную в файле .env или используя команду:
+docker-compose -p <projectname> up -d
