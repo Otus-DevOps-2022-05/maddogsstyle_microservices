@@ -18,12 +18,23 @@ maddogsstyle microservices repository
  - Работа с сетями
  - Работа с docker-compose
  - Определение и задание переменных
- 
-Папка, в которой находится docker-compose.yml определяет имя проекта. 
+
+Папка, в которой находится docker-compose.yml определяет имя проекта.
 Изменить имя проекта можно, задав переменную в файле .env или используя команду:
 docker-compose -p [projectname] up -d
 
 # Выполнено ДЗ №14
 Забавно, пришлось делать своп-файл, поскольку машине не хватало ОЗУ для прогона тестов)
- - Развернут Gitlab CI CI/CD 
+ - Развернут Gitlab CI CI/CD
  - Настроен конвейер для приложения
+
+# Выполнено ДЗ №15
+Выполнено основное задание:
+```https://hub.docker.com/repository/docker/achuprin/ui
+https://hub.docker.com/repository/docker/achuprin/post
+https://hub.docker.com/repository/docker/achuprin/comment
+https://hub.docker.com/repository/docker/achuprin/prometheus
+```
+- Прикрутил raffis/mongodb-query-exporter. Думаю, для наших целей сойдет.
+- Прикрутил blackbox-exporter на проврку доступности портов. Правда, он считает, что все порты 9292 недоступны... Нужна помощь!
+- Собрал Makefile. Он пока очень простой, и задачи не цепляются друг за друга, но он уже экономит мне кучу команд "cd .." и "docker build". Где же я был раньше...
