@@ -15,32 +15,16 @@ services:
       - ${UI_HOST_PORT}:${UI_CONTAINER_PORT}/tcp
     networks:
       - front_net
-    logging:
-      driver: "fluentd"
-      options:
-        fluentd-address: localhost:24224
-        tag: service.ui
-    environment:
-      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
   post:
     image: ${USERNAME}/post:${POST_TAG}
     networks:
       - front_net
       - back_net
-    logging:
-      driver: "fluentd"
-      options:
-        fluentd-address: localhost:24224
-        tag: service.post
-    environment:
-      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
   comment:
     image: ${USERNAME}/comment:${COMMENT_TAG}
     networks:
       - front_net
       - back_net
-    environment:
-      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
 
   prometheus:
     image: ${USERNAME}/prometheus
@@ -70,6 +54,19 @@ services:
       - '--path.procfs=/host/proc'
       - '--path.sysfs=/host/sys'
       - '--collector.filesystem.ignored-mount-points="^/(sys|proc|dev|host|etc)($$|/)"'
+
+  mongodb_exporter:
+    image: ${USER_NAME}/mongodb_exporter:latest
+    networks:
+      - back_net
+      - front_net
+
+  blackbox_exporter:
+    image: ${USER_NAME}/blackbox_exporter:latest
+    ports:
+      - '9115:9115'
+    command:
+      - '--config.file=/config/blackbox.yml'
 
 volumes:
   post_db:
