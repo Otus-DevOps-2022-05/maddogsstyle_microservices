@@ -1,7 +1,0 @@
----
-- hosts: all
-  become: yes
-  tasks:
-    - copy:
-        src: ../reddit
-        dest: /home/reddit
