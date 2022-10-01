@@ -1,0 +1,9 @@
+cloud_id                 = "b1grbdisl1gurdt2qgfs4rvj"
+folder_id                = "b1grbdil1gurdt2q4rvj"
+subnet_id                = "e9bi938c2mdtpn6icqm7"
+image_id                 = "fd887idda5cn5ioqbed4"
+public_key_path          = "~/.ssh/ubuntu.pub"
+service_account_key_file = "./key.json"
+instance_count           = 2
+ip_range                 = "10.10.10.0/24"
+zone                     = "ru-central1-a"
